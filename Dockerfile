@@ -9,6 +9,7 @@ RUN apk --update add --no-cache \
     nmap-ncat \
     nmap-scripts \
     openssh \
+    openssl \
     tcpdump
 
 CMD tail -f /dev/null
