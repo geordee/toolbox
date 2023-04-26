@@ -5,7 +5,7 @@ Tools for debugging and testing pod runtime and environments
 ## Build
 
 ```bash
-docker build -t geordee/toolbox:latest .
+podman build -t geordee/toolbox:latest .
 ```
 
 ## Deploy

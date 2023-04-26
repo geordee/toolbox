@@ -10,6 +10,8 @@ RUN apk --update add --no-cache \
     nmap-scripts \
     openssh \
     openssl \
-    tcpdump
+    tcpdump \
+    ioping \
+    fio
 
 CMD tail -f /dev/null
