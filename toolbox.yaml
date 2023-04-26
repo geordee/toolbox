@@ -15,5 +15,26 @@ spec:
         app: toolbox
     spec:
       containers:
-      - name: toolbox
-        image: geordee/toolbox:latest
+        - name: toolbox
+          image: geordee/toolbox:latest
+          volumeMounts:
+            - name: toolbox
+              mountPath: /toolbox
+      volumes:
+        - name: toolbox
+          persistentVolumeClaim:
+            claimName: toolbox
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    volume.beta.kubernetes.io/storage-class: ocs-storagecluster-ceph-rbd
+  name: toolbox
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ocs-storagecluster-ceph-rbd
+  resources:
+    requests:
+      storage: 50Gi
