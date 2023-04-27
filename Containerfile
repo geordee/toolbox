@@ -1,17 +1,19 @@
-FROM alpine:latest
+FROM debian:bookworm-slim
 
-RUN apk --update add --no-cache \
-    bind-tools \
-    busybox-extras \
+RUN apt-get update && apt-get install -y \
+    bind9-host \
     curl \
+    dnsutils \
+    iputils-ping \
     jq \
+    netcat-traditional \
     nmap \
-    nmap-ncat \
-    nmap-scripts \
-    openssh \
+    openssh-client \
     openssl \
     tcpdump \
     ioping \
-    fio
+    fio \
+    postgresql-client \
+    && apt-get clean
 
 CMD tail -f /dev/null
